@@ -1,7 +1,7 @@
 {
   "name": "slack-notify",
-  "version": "1.0.0",
-  "description": "Slack Notification action that doesn't suck",
+  "version": "0.0.0",
+  "description": "Slack notification action that doesn't suck",
   "author": "Adam K Dean <adamkdean@googlemail.com>",
   "license": "MIT",
   "keywords": [
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0",
     "@slack/webhook": "^5.0.3"
   },
   "devDependencies": {
