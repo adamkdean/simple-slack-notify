@@ -33,8 +33,6 @@ try {
     color = 'danger'
   } else if (!color && status === 'cancelled') {
     color = 'warning'
-  } else {
-    color = '#eeeeee'
   }
 
   // If text isn't set, check for status specific text
