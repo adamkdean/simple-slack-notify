@@ -23,31 +23,43 @@ try {
 
   let color = core.getInput('color')
   let text = core.getInput('text')
-  let fields = []
+  let fields = null
+  fields = []
 
   // If color isn't set but status is, infer the color
-  if (!color && status === 'success') color = 'good'
-  else if (!color && status === 'failure') color = 'danger'
-  else if (!color && status === 'cancelled') color = 'warning'
-  else color = '#eeeeee'
+  if (!color && status === 'success') {
+    color = 'good'
+  } else if (!color && status === 'failure') {
+    color = 'danger'
+  } else if (!color && status === 'cancelled') {
+    color = 'warning'
+  } else {
+    color = '#eeeeee'
+  }
 
   // If text isn't set, check for status specific text
-  if (!text && status === 'success' && successText) text = successText
-  else if (!text && status === 'failure' && failureText) text = failureText
-  else if (!text && status === 'cancelled' && cancelledText) text = cancelledText
+  if (!text && status === 'success' && successText) {
+    text = successText
+  } else if (!text && status === 'failure' && failureText) {
+    text = failureText
+  } else if (!text && status === 'cancelled' && cancelledText) {
+    text = cancelledText
+  }
 
   // Send the notification
-  (async () => {
+  ;(async () => {
     await slack.send({
       text,
       channel,
       username,
       icon_emoji: iconEmoji,
       icon_url: iconUrl,
-      attachments: [{
-        color,
-        fields
-      }]
+      attachments: [
+        {
+          color,
+          fields
+        }
+      ]
     })
   })()
 } catch (error) {
