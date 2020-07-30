@@ -1,0 +1,8 @@
+name: 'Slack Notify'
+description: "Slack Notification action that doesn't suck"
+branding:
+  icon: 'slack'
+  color: 'purple'
+runs:
+  using: 'node14'
+  main: 'dist/index.js'

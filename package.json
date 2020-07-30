@@ -1,0 +1,30 @@
+{
+  "name": "slack-notify",
+  "version": "1.0.0",
+  "description": "Slack Notification action that doesn't suck",
+  "author": "Adam K Dean <adamkdean@googlemail.com>",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "notify",
+    "notification",
+    "github action",
+    "action"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamkdean/slack-notify.git"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "format": "prettier --write **/*.js",
+    "format-check": "prettier --check **/*.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@slack/webhook": "^5.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
