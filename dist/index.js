@@ -2983,7 +2983,7 @@ try {
   const successText = core.getInput('success_text')
   const failureText = core.getInput('failure_text')
   const cancelledText = core.getInput('cancelled_text')
-  const fields = core.getInput('fields')
+  const fields = JSON.parse(core.getInput('fields'))
 
   let color = core.getInput('color')
   let text = core.getInput('text')
