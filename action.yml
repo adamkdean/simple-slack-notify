@@ -8,37 +8,42 @@ runs:
   main: 'dist/index.js'
 inputs:
   channel:
-    description: TODO
+    description: The channel you want to send to, such as '#general'
     default: ''
     required: false
   username:
-    description: TODO
+    description: Used to override the default username
     default: ''
     required: false
   icon_emoji:
-    description: TODO
+    description: Used to override the default image emoji
     default: ''
     required: false
   icon_url:
-    description: TODO
+    description: Used to override the default image with a remote image
+    default: ''
+    required: false
+  color:
+    description: The color you want to use, can be good, danger, warning or a hex code
+    default: ''
+    required: false
+  status:
+    description: Pass the job status through and omit color for status based color
     default: ''
     required: false
   text:
-    description: TODO
+    description: The message that you want to send regardless of status
     default: ''
     required: false
-# fields:
-#   description: TODO
-#   default: ''
-#   required: false
-# status:
-#   description: TODO
-#   default: ''
-#   required: false
-# custom_payload:
-#   description: TODO
-#   required: false
-# mention:
-#   description: TODO
-#   default: ''
-#   required: false
+  success_text:
+    description: The message to send if status is success
+    default: ''
+    required: false
+  failure_text:
+    description: The message to send if status is failure
+    default: ''
+    required: false
+  cancelled_text:
+    description: The message to send if status is cancelled
+    default: ''
+    required: false
