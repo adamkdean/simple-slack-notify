@@ -4,7 +4,7 @@ branding:
   icon: 'slack'
   color: 'purple'
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/index.js'
 inputs:
   channel:
@@ -27,3 +27,18 @@ inputs:
     description: TODO
     default: ''
     required: false
+# fields:
+#   description: TODO
+#   default: ''
+#   required: false
+# status:
+#   description: TODO
+#   default: ''
+#   required: false
+# custom_payload:
+#   description: TODO
+#   required: false
+# mention:
+#   description: TODO
+#   default: ''
+#   required: false
