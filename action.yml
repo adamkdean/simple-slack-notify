@@ -48,5 +48,6 @@ inputs:
     default: ''
     required: false
   fields:
-    description: 'An array of fields to attach to the notification'
+    description: 'JSON string containing an array of fields to attach to the notification'
+    default: '[]'
     required: false

@@ -2983,16 +2983,10 @@ try {
   const successText = core.getInput('success_text')
   const failureText = core.getInput('failure_text')
   const cancelledText = core.getInput('cancelled_text')
+  const fields = core.getInput('fields')
 
   let color = core.getInput('color')
   let text = core.getInput('text')
-  const fields = core.getInput('fields')
-
-  // { title: 'Key', value: key, short: false },
-  // { title: 'File', value: `${this.cache_prefix}.${key}`, short: false },
-  // { title: 'Error', value: 'JSON corrupt', short: false }
-
-  core.setOutput(fields)
 
   // If color isn't set but status is, infer the color
   if (!color && status === 'success') {
