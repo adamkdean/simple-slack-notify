@@ -6,3 +6,24 @@ branding:
 runs:
   using: 'node14'
   main: 'dist/index.js'
+inputs:
+  channel:
+    description: TODO
+    default: ''
+    required: false
+  username:
+    description: TODO
+    default: ''
+    required: false
+  icon_emoji:
+    description: TODO
+    default: ''
+    required: false
+  icon_url:
+    description: TODO
+    default: ''
+    required: false
+  text:
+    description: TODO
+    default: ''
+    required: false
