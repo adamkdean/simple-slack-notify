@@ -49,13 +49,14 @@ try {
   // Send the notification
   ;(async () => {
     await slack.send({
-      text,
       channel,
       username,
       icon_emoji: iconEmoji,
       icon_url: iconUrl,
       attachments: [
         {
+          fallback: text,
+          text,
           color,
           fields
         }
