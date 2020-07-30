@@ -47,3 +47,6 @@ inputs:
     description: The message to send if status is cancelled
     default: ''
     required: false
+  fields:
+    description: 'An array of fields to attach to the notification'
+    required: false

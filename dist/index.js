@@ -2989,6 +2989,10 @@ try {
   let fields = null
   fields = []
 
+  // { title: 'Key', value: key, short: false },
+  // { title: 'File', value: `${this.cache_prefix}.${key}`, short: false },
+  // { title: 'Error', value: 'JSON corrupt', short: false }
+
   // If color isn't set but status is, infer the color
   if (!color && status === 'success') {
     color = 'good'
