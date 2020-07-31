@@ -12,18 +12,25 @@ const { IncomingWebhook } = require('@slack/webhook')
 try {
   const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
 
+  /* eslint-disable no-eval */
+  const env = process.env // eslint-disable-line
+  const envsubst = (string, json = false) => {
+    const s = eval(`\`${string}\``)
+    return json ? JSON.parse(s) : s
+  }
+
   const channel = core.getInput('channel')
   const username = core.getInput('username')
   const iconEmoji = core.getInput('icon_emoji')
   const iconUrl = core.getInput('icon_url')
   const status = core.getInput('status')
-  const successText = core.getInput('success_text')
-  const failureText = core.getInput('failure_text')
-  const cancelledText = core.getInput('cancelled_text')
-  const fields = JSON.parse(core.getInput('fields'))
+  const successText = envsubst(core.getInput('success_text'))
+  const failureText = envsubst(core.getInput('failure_text'))
+  const cancelledText = envsubst(core.getInput('cancelled_text'))
+  const fields = envsubst(core.getInput('fields'), true)
 
   let color = core.getInput('color')
-  let text = core.getInput('text')
+  let text = envsubst(core.getInput('text'))
 
   // If color isn't set but status is, infer the color
   if (!color && status === 'success') {
@@ -54,7 +61,9 @@ try {
         {
           fallback: text,
           text,
-          color,
+          color
+        },
+        {
           fields
         }
       ]
