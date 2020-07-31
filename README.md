@@ -100,7 +100,7 @@ Did you notice that some JavaScript snook in? Input strings are evaluated as a J
     text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) has finished'
     fields: |
       [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-       { "title": "Branch", "value": "${env.GITHUB_BRANCH}", "short": true }]
+       { "title": "Branch", "value": "${env.BRANCH}", "short": true }]
 ```
 
 Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Most other notification plugins use multiple blocks with `if: success()` and `if: failed()` etc but we don't need to do that. We can simply pass in the status and set status specific text. We use `if: always()` so that it runs regardless of whether the job is successful or not.
@@ -117,17 +117,17 @@ Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Mo
     cancelled_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build was cancelled'
     fields: |
       [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-       { "title": "Branch", "value": "${env.GITHUB_BRANCH}", "short": true }]
+       { "title": "Branch", "value": "${env.BRANCH}", "short": true }]
 ```
 
 There are likely other ways you can use this action, so please submit a pull request if you want to add your useful example to this list. I hope this is as useful for you as it is for me.
 
-Note: the `GITHUB_BRANCH` variable isn't standard. To get that, use the following:
+Note: the `BRANCH` variable isn't standard. To get that, use the following:
 
 ```
 - name: Extract branch name
   shell: bash
-  run: echo "::set-env name=GITHUB_BRANCH::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+  run: echo "::set-env name=BRANCH::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
 ```
 
 ## Inputs
