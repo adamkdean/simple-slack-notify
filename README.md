@@ -7,7 +7,7 @@ Slack notification action that doesn't suck
 I've attempted to use a few of the Slack notification actions that are currently available, but they all seem to have limitations or be quite verbose, so I set out to create a simple yet effective action that just does what you need and nothing else. In the examples below, I'll show a few different variations of how the action could be used.
 
 The main features are:
-- Status based messages meaning one step handles job successes, fails, and cancellations
+- Status based messages meaning one step handles job successes, failures, and cancellations
 - JavaScript strings for embedding environment variables or custom logic into notification strings
 - Easy to add fields based on standard Slack JSON inputs
 
@@ -15,7 +15,7 @@ Be sure that you set the `SLACK_WEBHOOK_URL` environment variable, either in the
 
 ## Example usage
 
-The simplest notification would consist of relying on the defaults you set when creating the webhook, and simply providing some text.
+The simplest use would consist of relying on the webook's defaults and simply providing some text.
 
 ```
 - name: Simple notification
@@ -34,7 +34,7 @@ Overriding the channel is sometimes needed, such as to separate out builds, depl
     text: 'Something is happening and someone should probably panic'
 ```
 
-The above works well, but what would really panic is if we make the alert red, right?
+The above works well, but what would really make someone panic is if we make the alert red, right?
 
 You can use `danger`, `warning`, `good`, or a hex code such as `#d90000`.
 
@@ -98,7 +98,7 @@ Did you notice that some JavaScript snook in? Input strings are evaluated as a J
     text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) has finished'
     fields: |
       [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-       { "title": "Branch", "value": "${env.BRANCH}", "short": true }]
+       { "title": "Branch", "value": "${env.GITHUB_BRANCH}", "short": true }]
 ```
 
 Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Most other notification plugins use multiple blocks with `if: success()` and `if: failed()` etc but we don't need to do that. We can simply pass in the status and set status specific text. We use `if: always()` so that it runs regardless of whether the job is successful or not.
@@ -115,10 +115,18 @@ Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Mo
     cancelled_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build was cancelled'
     fields: |
       [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-       { "title": "Branch", "value": "${env.BRANCH}", "short": true }]
+       { "title": "Branch", "value": "${env.GITHUB_BRANCH}", "short": true }]
 ```
 
 There are likely other ways you can use this action, so please submit a pull request if you want to add your useful example to this list. I hope this is as useful for you as it is for me.
+
+Note: the `GITHUB_BRANCH` variable isn't standard. To get that, use the following:
+
+```
+- name: Extract branch name
+  shell: bash
+  run: echo "::set-env name=GITHUB_BRANCH::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+```
 
 ## Inputs
 
