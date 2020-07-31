@@ -15,14 +15,6 @@ inputs:
     description: Used to override the default username
     default: ''
     required: false
-  icon_emoji:
-    description: Used to override the default image emoji
-    default: ''
-    required: false
-  icon_url:
-    description: Used to override the default image with a remote image
-    default: ''
-    required: false
   color:
     description: The color you want to use, can be good, danger, warning or a hex code
     default: ''

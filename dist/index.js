@@ -2984,8 +2984,6 @@ try {
 
   const channel = core.getInput('channel')
   const username = core.getInput('username')
-  const iconEmoji = core.getInput('icon_emoji')
-  const iconUrl = core.getInput('icon_url')
   const status = core.getInput('status')
   const successText = envsubst(core.getInput('success_text'))
   const failureText = envsubst(core.getInput('failure_text'))
@@ -3018,8 +3016,6 @@ try {
     await slack.send({
       channel,
       username,
-      icon_emoji: iconEmoji,
-      icon_url: iconUrl,
       attachments: [
         {
           fallback: text,
