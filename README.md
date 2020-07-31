@@ -1,6 +1,6 @@
 # Simple Slack Notify
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/adamkdean/slack-notify?label=version)](https://packagist.org/packages/adamkdean/slack-notify) [![Release date](https://img.shields.io/github/release-date/adamkdean/slack-notify)](https://packagist.org/packages/adamkdean/slack-notify) [![License](https://img.shields.io/packagist/l/adamkdean/slack-notify)](https://packagist.org/packages/adamkdean/slack-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+[![Latest Stable Version](https://img.shields.io/packagist/v/adamkdean/simple-slack-notify?label=version)](https://packagist.org/packages/adamkdean/simple-slack-notify) [![Release date](https://img.shields.io/github/release-date/adamkdean/simple-slack-notify)](https://packagist.org/packages/adamkdean/simple-slack-notify) [![License](https://img.shields.io/packagist/l/adamkdean/simple-slack-notify)](https://packagist.org/packages/adamkdean/simple-slack-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 Slack notification action that just works
 
