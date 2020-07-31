@@ -3027,6 +3027,7 @@ try {
           color
         },
         {
+          color,
           fields
         }
       ]

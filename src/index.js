@@ -64,6 +64,7 @@ try {
           color
         },
         {
+          color,
           fields
         }
       ]
