@@ -1,6 +1,6 @@
 {
   "name": "slack-notify",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Slack notification action that doesn't suck",
   "author": "Adam K Dean <adamkdean@googlemail.com>",
   "license": "MIT",
