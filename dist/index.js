@@ -2961,12 +2961,14 @@ module.exports = function httpAdapter(config) {
 /***/ 676:
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-//  ___ _         _     _  _     _   _  __
-// / __| |__ _ __| |__ | \| |___| |_(_)/ _|_  _
-// \__ \ / _` / _| / / | .` / _ \  _| |  _| || |
-// |___/_\__,_\__|_\_\ |_|\_\___/\__|_|_|  \_, |
-//                                         |__/
-// Slack notification action that doesn't suck
+//         ___ _            _
+//        / __(_)_ __  _ __| |___
+//        \__ \ | '  \| '_ \ / -_)
+//    ___ |___/_|_|_|_| .__/_\___| _   _  __
+//   / __| |__ _ __| ||_|| \| |___| |_(_)/ _|_  _
+//   \__ \ / _` / _| / / | .` / _ \  _| |  _| || |
+//   |___/_\__,_\__|_\_\ |_|\_\___/\__|_|_|  \_, |
+//  Slack notification action that just works |__/
 // Copyright 2020 Adam K Dean <adamkdean@googlemail.com>
 
 const core = __webpack_require__(470)

@@ -1,7 +1,7 @@
-name: 'Slack Notify'
-description: "Slack Notification action that doesn't suck"
+name: 'Simple Slack Notify'
+description: "Slack notification action that just works"
 branding:
-  icon: 'slack'
+  icon: 'message-circle'
   color: 'purple'
 runs:
   using: 'node12'

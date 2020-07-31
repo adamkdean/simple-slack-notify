@@ -1,8 +1,8 @@
-# slack-notify
+# Simple Slack Notify
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/adamkdean/slack-notify?label=version)](https://packagist.org/packages/adamkdean/slack-notify) [![Release date](https://img.shields.io/github/release-date/adamkdean/slack-notify)](https://packagist.org/packages/adamkdean/slack-notify) [![License](https://img.shields.io/packagist/l/adamkdean/slack-notify)](https://packagist.org/packages/adamkdean/slack-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
-Slack notification action that doesn't suck
+Slack notification action that just works
 
 ## Introduction
 
@@ -21,7 +21,7 @@ The simplest use would consist of relying on the webook's defaults and simply pr
 
 ```
 - name: Simple notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     text: 'This is the simplest notification'
 ```
@@ -30,7 +30,7 @@ Overriding the channel is sometimes needed, such as to separate out builds, depl
 
 ```
 - name: Channel specific notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#alerts'
     text: 'Something is happening and someone should probably panic'
@@ -42,7 +42,7 @@ You can use `danger`, `warning`, `good`, or a hex code such as `#d90000`.
 
 ```
 - name: Panic inducing notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#alerts'
     text: 'Something is happening and someone should probably panic'
@@ -53,7 +53,7 @@ Perhaps you also want to change the username?
 
 ```
 - name: Panic Bot notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#alerts'
     username: 'Panic Bot'
@@ -65,7 +65,7 @@ The action also supports fields, but due to the limitations of GitHub actions on
 
 ```
 - name: Specifying what to panic about notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#alerts'
     username: 'Panic Bot'
@@ -79,7 +79,7 @@ If there were multiple reasons to panic, you'd add more objects to the fields ar
 
 ```
 - name: Specifying what to panic about notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#alerts'
     username: 'Panic Bot'
@@ -94,7 +94,7 @@ Did you notice that some JavaScript snook in? Input strings are evaluated as a J
 
 ```
 - name: Environment variable notification
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#example'
     text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) has finished'
@@ -108,7 +108,7 @@ Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Mo
 ```
 - name: Build notification
   if: always()
-  uses: adamkdean/slack-notify@master
+  uses: adamkdean/simple-slack-notify@master
   with:
     channel: '#builds'
     status: ${{ job.status }}

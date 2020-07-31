@@ -1,7 +1,7 @@
 {
-  "name": "slack-notify",
-  "version": "1.0.0",
-  "description": "Slack notification action that doesn't suck",
+  "name": "simple-slack-notify",
+  "version": "1.0.1",
+  "description": "Slack notification action that just works",
   "author": "Adam K Dean <adamkdean@googlemail.com>",
   "license": "MIT",
   "keywords": [
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adamkdean/slack-notify.git"
+    "url": "git+https://github.com/adamkdean/simple-slack-notify.git"
   },
   "main": "dist/index.js",
   "scripts": {
