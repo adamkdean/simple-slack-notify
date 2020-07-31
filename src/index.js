@@ -59,9 +59,6 @@ try {
         {
           fallback: text,
           text,
-          color
-        },
-        {
           color,
           fields
         }
