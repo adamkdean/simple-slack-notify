@@ -1,4 +1,6 @@
-# slack-notify [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+# slack-notify
+
+[![Latest Stable Version](https://img.shields.io/packagist/v/adamkdean/slack-notify?label=version)](https://packagist.org/packages/adamkdean/slack-notify) [![Release date](https://img.shields.io/github/release-date/adamkdean/slack-notify)](https://packagist.org/packages/adamkdean/slack-notify) [![License](https://img.shields.io/packagist/l/adamkdean/slack-notify)](https://packagist.org/packages/adamkdean/slack-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 Slack notification action that doesn't suck
 
