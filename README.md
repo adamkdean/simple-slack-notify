@@ -122,12 +122,31 @@ Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Mo
 
 There are likely other ways you can use this action, so please submit a pull request if you want to add your useful example to this list. I hope this is as useful for you as it is for me.
 
+
+### Extracting GitHub branch
+
 Note: the `BRANCH` variable isn't standard. To get that, use the following:
 
 ```
 - name: Extract branch name
   shell: bash
   run: echo "::set-env name=BRANCH::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+```
+
+This won't work for actions initiated by a pull request though.
+
+### Link to run
+
+If you want to link to the run, that's super easy. Just add the following string either to a field or to the message.
+
+```
+${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}
+```
+
+So for a field you'd have:
+
+```
+{ "title": "Action URL", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}
 ```
 
 ## Inputs
