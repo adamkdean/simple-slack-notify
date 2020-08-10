@@ -2984,15 +2984,15 @@ try {
     return json ? JSON.parse(s) : s
   }
 
-  const channel = core.getInput('channel')
-  const username = core.getInput('username')
-  const status = core.getInput('status')
+  const channel = envsubst(core.getInput('channel'))
+  const username = envsubst(core.getInput('username'))
+  const status = envsubst(core.getInput('status'))
   const successText = envsubst(core.getInput('success_text'))
   const failureText = envsubst(core.getInput('failure_text'))
   const cancelledText = envsubst(core.getInput('cancelled_text'))
   const fields = envsubst(core.getInput('fields'), true)
 
-  let color = core.getInput('color')
+  let color = envsubst(core.getInput('color'))
   let text = envsubst(core.getInput('text'))
 
   // If color isn't set but status is, infer the color
@@ -3011,8 +3011,6 @@ try {
     text = failureText
   } else if (!text && status === 'cancelled' && cancelledText) {
     text = cancelledText
-  } else {
-    text = `Status was set to ${status}`
   }
 
   // Send the notification
