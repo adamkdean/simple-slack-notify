@@ -3011,6 +3011,8 @@ try {
     text = failureText
   } else if (!text && status === 'cancelled' && cancelledText) {
     text = cancelledText
+  } else {
+    text = `Status was set to ${status}`
   }
 
   // Send the notification
@@ -3022,9 +3024,6 @@ try {
         {
           fallback: text,
           text,
-          color
-        },
-        {
           color,
           fields
         }
