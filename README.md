@@ -17,7 +17,7 @@ Be sure that you set the `SLACK_WEBHOOK_URL` environment variable, either in the
 
 ## Example usage
 
-The simplest use would consist of relying on the webook's defaults and simply providing some text.
+The simplest use would consist of relying on the webhook's defaults and simply providing some text.
 
 ```
 - name: Simple notification
