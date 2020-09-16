@@ -13,7 +13,13 @@ The main features are:
 - JavaScript strings for embedding environment variables or custom logic into notification strings
 - Easy to add fields based on standard Slack JSON inputs
 
-Be sure that you set the `SLACK_WEBHOOK_URL` environment variable, either in the job or in the step.
+Be sure that you set the `SLACK_WEBHOOK_URL` environment variable, either in the job or in the step like this:
+
+```yaml
+- uses: adamkdean/simple-slack-notify@master
+  env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+```
 
 ## Example usage
 
