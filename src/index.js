@@ -31,21 +31,24 @@ try {
   let text = envsubst(core.getInput('text'))
 
   // If color isn't set but status is, infer the color
-  if (!color && status === 'success') {
-    color = 'good'
-  } else if (!color && status === 'failure') {
-    color = 'danger'
-  } else if (!color && status === 'cancelled') {
-    color = 'warning'
+  if (!color) {
+    if (status === 'success') {
+      color = 'good'
+    } else if (status === 'failure') {
+      color = 'danger'
+    } else if (status === 'cancelled') {
+      color = 'warning'
+    }
   }
-
   // If text isn't set, check for status specific text
-  if (!text && status === 'success' && successText) {
-    text = successText
-  } else if (!text && status === 'failure' && failureText) {
-    text = failureText
-  } else if (!text && status === 'cancelled' && cancelledText) {
-    text = cancelledText
+  if (!text) {
+    if (status === 'success') {
+      text = successText || 'No success text specified.'
+    } else if (status === 'failure') {
+      text = failureText || 'No failure text specified.'
+    } else if (status === 'cancelled') {
+      text = cancelledText || 'No cancelled text specified.'
+    }
   }
 
   // Send the notification
