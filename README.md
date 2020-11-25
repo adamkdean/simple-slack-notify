@@ -1,6 +1,6 @@
 # Simple Slack Notify
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/adamkdean/simple-slack-notify) ![GitHub Release Date](https://img.shields.io/github/release-date/adamkdean/simple-slack-notify) ![License](https://img.shields.io/github/license/adamkdean/simple-slack-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/edge/simple-slack-notify) ![GitHub Release Date](https://img.shields.io/github/release-date/edge/simple-slack-notify) ![License](https://img.shields.io/github/license/edge/simple-slack-notify) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 Slack notification action that just works
 
@@ -21,7 +21,7 @@ The simplest use would consist of relying on the webhook's defaults and simply p
 
 ```
 - name: Simple notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     text: 'This is the simplest notification'
 ```
@@ -30,7 +30,7 @@ Overriding the channel is sometimes needed, such as to separate out builds, depl
 
 ```
 - name: Channel specific notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#alerts'
     text: 'Something is happening and someone should probably panic'
@@ -42,7 +42,7 @@ You can use `danger`, `warning`, `good`, or a hex code such as `#d90000`.
 
 ```
 - name: Panic inducing notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#alerts'
     text: 'Something is happening and someone should probably panic'
@@ -53,7 +53,7 @@ Perhaps you also want to change the username?
 
 ```
 - name: Panic Bot notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#alerts'
     username: 'Panic Bot'
@@ -65,7 +65,7 @@ The action also supports fields, but due to the limitations of GitHub actions on
 
 ```
 - name: Specifying what to panic about notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#alerts'
     username: 'Panic Bot'
@@ -79,7 +79,7 @@ If there were multiple reasons to panic, you'd add more objects to the fields ar
 
 ```
 - name: Specifying what to panic about notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#alerts'
     username: 'Panic Bot'
@@ -94,7 +94,7 @@ Did you notice that some JavaScript snook in? Input strings are evaluated as a J
 
 ```
 - name: Environment variable notification
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#example'
     text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) has finished'
@@ -108,7 +108,7 @@ Now, each job has a status, which can be `success`, `failed`, or `cancelled`. Mo
 ```
 - name: Build notification
   if: always()
-  uses: adamkdean/simple-slack-notify@master
+  uses: edge/simple-slack-notify@master
   with:
     channel: '#builds'
     status: ${{ job.status }}
@@ -151,41 +151,17 @@ So for a field you'd have:
 
 ## Inputs
 
-### `channel`
-
-The channel you want to send to, such as '#general'
-
-### `username`
-
-Used to override the default username
-
-### `color`
-
-The color you want to use, can be good, danger, warning or a hex code
-
-### `status`
-
-Pass the job status through and omit color for status based color
-
-### `text`
-
-The message that you want to send regardless of status
-
-### `success_text`
-
-The message to send if status is success
-
-### `failure_text`
-
-The message to send if status is failure
-
-### `cancelled_text`
-
-The message to send if status is cancelled
-
-### `fields`
-
-JSON string containing an array of fields to attach to the notification
+| Input | Details | Example/possible values |
+|:------|:--------|:------------------------|
+| cancelled_text | The message to send if status is cancelled | |
+| channel | The channel you want to send to | #general |
+| color | The color you want to use | "good", "danger", "warning" or a hex code |
+| failure_text | The message to send if status is failure | |
+| fields | JSON string containing an array of fields to attach to the notification | |
+| status | Pass the job status through and omit color for status based color | |
+| success_text | The message to send if status is success | |
+| text | The message that you want to send regardless of status | |
+| username | Used to override the default username | |
 
 ## License
 
