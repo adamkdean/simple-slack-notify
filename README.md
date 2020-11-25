@@ -6,7 +6,9 @@ Slack notification action that just works
 
 ## Introduction
 
-I've attempted to use a few of the Slack notification actions that are currently available, but they all seem to have limitations or be quite verbose, so I set out to create a simple yet effective action that just does what you need and nothing else. In the examples below, I'll show a few different variations of how the action could be used.
+This is the continuation of [adamkdean/simple-slack-notify](https://github.com/adamkdean/simple-slack-notify).
+
+We've attempted to use a few of the Slack notification actions that are currently available, but they all seem to have limitations or be quite verbose, so we set out to create a simple yet effective action that just does what you need and nothing else. In the examples below, we'll show a few different variations of how the action could be used.
 
 The main features are:
 - Status based messages meaning one step handles job successes, failures, and cancellations
@@ -16,7 +18,7 @@ The main features are:
 Be sure that you set the `SLACK_WEBHOOK_URL` environment variable, either in the job or in the step like this:
 
 ```yaml
-- uses: adamkdean/simple-slack-notify@master
+- uses: edge/simple-slack-notify@master
   env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
@@ -171,9 +173,11 @@ So for a field you'd have:
 
 ## License
 
+```
 MIT License
 
 Copyright (c) 2020 Adam K Dean <adamkdean@googlemail.com>
+                   Edge Network Technologies Ltd <core@edge.network>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -192,3 +196,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+```
