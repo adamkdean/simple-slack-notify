@@ -3040,6 +3040,9 @@ const core = __webpack_require__(470)
 const { IncomingWebhook } = __webpack_require__(736)
 
 try {
+  if (!process.env.SLACK_WEBHOOK_URL) {
+    throw new Error('SLACK_WEBHOOK_URL is not set!')
+  }
   const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
 
   /* eslint-disable no-eval */
