@@ -11,6 +11,10 @@ inputs:
     description: The channel you want to send to, such as '#general'
     default: ''
     required: false
+  disable_eval:
+    description: Disable JS evaluation of strings
+    default: false
+    required: false
   username:
     description: Used to override the default username
     default: ''

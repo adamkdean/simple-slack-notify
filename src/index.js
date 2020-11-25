@@ -15,11 +15,9 @@ try {
   const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
 
   /* eslint-disable no-eval */
+  const disableEval = !!core.getInput('disable_eval')
   const env = process.env // eslint-disable-line
-  const envsubst = (string, json = false) => {
-    const s = eval(`\`${string}\``)
-    return json ? JSON.parse(s) : s
-  }
+  const envsubst = (str) => (disableEval ? str : eval(`\`${str}\``))
 
   const channel = envsubst(core.getInput('channel'))
   const username = envsubst(core.getInput('username'))
@@ -27,27 +25,30 @@ try {
   const successText = envsubst(core.getInput('success_text'))
   const failureText = envsubst(core.getInput('failure_text'))
   const cancelledText = envsubst(core.getInput('cancelled_text'))
-  const fields = envsubst(core.getInput('fields'), true)
+  const fields = JSON.parse(envsubst(core.getInput('fields')) || '[]')
 
   let color = envsubst(core.getInput('color'))
   let text = envsubst(core.getInput('text'))
 
   // If color isn't set but status is, infer the color
-  if (!color && status === 'success') {
-    color = 'good'
-  } else if (!color && status === 'failure') {
-    color = 'danger'
-  } else if (!color && status === 'cancelled') {
-    color = 'warning'
+  if (!color) {
+    if (status === 'success') {
+      color = 'good'
+    } else if (status === 'failure') {
+      color = 'danger'
+    } else if (status === 'cancelled') {
+      color = 'warning'
+    }
   }
-
   // If text isn't set, check for status specific text
-  if (!text && status === 'success' && successText) {
-    text = successText
-  } else if (!text && status === 'failure' && failureText) {
-    text = failureText
-  } else if (!text && status === 'cancelled' && cancelledText) {
-    text = cancelledText
+  if (!text) {
+    if (status === 'success') {
+      text = successText || 'No success text specified.'
+    } else if (status === 'failure') {
+      text = failureText || 'No failure text specified.'
+    } else if (status === 'cancelled') {
+      text = cancelledText || 'No cancelled text specified.'
+    }
   }
 
   // Send the notification

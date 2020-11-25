@@ -164,6 +164,7 @@ So for a field you'd have:
 | cancelled_text | The message to send if status is cancelled | |
 | channel | The channel you want to send to | #general |
 | color | The color you want to use | "good", "danger", "warning" or a hex code |
+| disable_eval | Disable JS string evaluation. False by default | false |
 | failure_text | The message to send if status is failure | |
 | fields | JSON string containing an array of fields to attach to the notification | |
 | status | Pass the job status through and omit color for status based color | |
