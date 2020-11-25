@@ -15,11 +15,9 @@ try {
   const slack = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL)
 
   /* eslint-disable no-eval */
+  const disableEval = !!core.getInput('disable_eval')
   const env = process.env // eslint-disable-line
-  const envsubst = (string, json = false) => {
-    const s = eval(`\`${string}\``)
-    return json ? JSON.parse(s) : s
-  }
+  const envsubst = (str) => (disableEval ? str : eval(`\`${str}\``))
 
   const channel = envsubst(core.getInput('channel'))
   const username = envsubst(core.getInput('username'))
@@ -27,7 +25,7 @@ try {
   const successText = envsubst(core.getInput('success_text'))
   const failureText = envsubst(core.getInput('failure_text'))
   const cancelledText = envsubst(core.getInput('cancelled_text'))
-  const fields = envsubst(core.getInput('fields'), true)
+  const fields = JSON.parse(envsubst(core.getInput('fields')) || '[]')
 
   let color = envsubst(core.getInput('color'))
   let text = envsubst(core.getInput('text'))
