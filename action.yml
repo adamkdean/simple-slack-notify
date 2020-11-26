@@ -13,7 +13,7 @@ inputs:
     required: false
   disable_eval:
     description: Disable JS evaluation of strings
-    default: false
+    default: ''
     required: false
   username:
     description: Used to override the default username
