@@ -4,6 +4,10 @@
 
 Slack notification action that just works
 
+## No longer maintained
+
+Please note that this project is no longer maintained, and has been archived.
+
 ## Introduction
 
 We've attempted to use a few of the Slack notification actions that are currently available, but they all seem to have limitations or be quite verbose, so we set out to create a simple yet effective action that just does what you need and nothing else. In the examples below, we'll show a few different variations of how the action could be used.
